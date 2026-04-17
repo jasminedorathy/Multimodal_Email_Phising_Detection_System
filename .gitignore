@@ -9,6 +9,12 @@ env/
 .env.local
 .env.production.local
 .env.test.local
+tf_env/
+.venv_old/
+
+# Data and Assets
+data/
+backend/uploads/
 
 # Databases
 *.sqlite
