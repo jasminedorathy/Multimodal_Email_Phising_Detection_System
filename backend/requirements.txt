@@ -1,0 +1,12 @@
+Flask==3.0.0
+flask-cors==4.0.0
+tensorflow>=2.20.0
+numpy
+pandas
+pillow
+python-dotenv
+PyJWT
+flask-bcrypt
+scikit-learn
+python-magic
+requests

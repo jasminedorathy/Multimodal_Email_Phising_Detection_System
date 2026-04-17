@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PhishGuard</title>
+    <style>
+        body { font-family: 'Inter', sans-serif; width: 320px; padding: 15px; margin: 0; background: #0f172a; color: #f8fafc; }
+        h3 { margin-top: 0; color: #60a5fa; display: flex; align-items: center; gap: 8px; font-size: 16px; margin-bottom: 5px; }
+        .description { font-size: 11px; color: #94a3b8; margin-bottom: 15px; }
+        .btn { width: 100%; cursor: pointer; padding: 10px; background: #3b82f6; color: white; border: none; border-radius: 6px; font-weight: bold; margin-bottom: 10px; text-shadow: 0 1px 2px rgba(0,0,0,0.2); }
+        .btn:hover { background: #2563eb; }
+        .btn:disabled { background: #475569; cursor: not-allowed; }
+        #result-box { display: none; padding: 12px; background: #1e293b; border-radius: 8px; margin-top: 10px; border: 1px solid #334155; }
+        .score-row { display: flex; justify-content: space-between; font-size: 12px; margin: 4px 0; color: #cbd5e1; }
+        .score-val { font-weight: bold; }
+        .phishing { color: #ef4444; border-color: rgba(239, 68, 68, 0.4); box-shadow: 0 4px 12px rgba(239, 68, 68, 0.1); background: rgba(239, 68, 68, 0.05) !important; }
+        .safe { color: #10b981; border-color: rgba(16, 185, 129, 0.4); box-shadow: 0 4px 12px rgba(16, 185, 129, 0.1); background: rgba(16, 185, 129, 0.05) !important;}
+        .phishing .score-val { color: #ef4444; }
+        .safe .score-val { color: #10b981; }
+        .loader { border: 2px solid #1e293b; border-top: 2px solid #3b82f6; border-radius: 50%; width: 14px; height: 14px; animation: spin 1s linear infinite; display: inline-block; vertical-align: middle; margin-right: 5px; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    </style>
+</head>
+<body>
+    <h3>🛡️ PhishGuard Inline</h3>
+    <p class="description">Analyze the current page structure, text, and URL for hidden threats.</p>
+    
+    <button id="analyze-btn" class="btn">Scan Current Tab</button>
+    
+    <div id="result-box">
+        <h4 id="verdict" style="margin:0 0 10px 0; font-size: 14px; text-align: center;"></h4>
+        <div class="score-row"><span>Confidence:</span> <span id="conf" class="score-val"></span></div>
+        <hr style="border-color: #334155; margin: 8px 0;" />
+        <div class="score-row"><span>URL Score:</span> <span id="s-url" class="score-val"></span></div>
+        <div class="score-row"><span>Text Score:</span> <span id="s-text" class="score-val"></span></div>
+        <div class="score-row"><span>Intent:</span> <span id="s-per" class="score-val"></span></div>
+        <a href="http://localhost:5173/dashboard" target="_blank" style="display:block; text-align:center; color:#60a5fa; font-size: 10px; margin-top: 10px; text-decoration:none;">View Full Report Base</a>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>
